@@ -13,7 +13,7 @@ const HomePage = () => {
 		instance
 			.get("/books")
 			.then((response) => {
-				setBooks(response.data.books);
+				setBooks(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -26,12 +26,11 @@ const HomePage = () => {
 			.then((response) => {
 				toast.success(response.data.message);
 				setRefresh(true);
-				// getAllBooks()
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-	}
+	};
 
 	useEffect(() => {
 		getAllBooks();
@@ -44,9 +43,13 @@ const HomePage = () => {
 			<div className="homepage_body">
 				<h2>Livres disponibles:</h2>
 				<div className="books">
-					{books.map((livre, id) => {
-						return <Book key={id} book={livre} action={borrowABook} />;
-					})}
+					{books.length > 0 ? (
+						books.map((livre, id) => {
+							return <Book key={id} book={livre} action={borrowABook} />;
+						})
+					) : (
+						<p>Il n'y aucun livre dans cette bibliothèque</p>
+					)}
 				</div>
 			</div>
 		</div>

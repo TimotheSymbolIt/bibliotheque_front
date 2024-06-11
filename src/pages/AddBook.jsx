@@ -32,8 +32,8 @@ const AddBook = () => {
 		instance
 			.get("/authors")
 			.then((response) => {
-				// console.log(response.data.authors);
-				setAuthors(response.data.authors);
+				// console.log(response.data);
+				setAuthors(response.data);
 			})
 			.catch((error) => {
 				console.log(error);

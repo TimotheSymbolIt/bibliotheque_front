@@ -16,7 +16,7 @@ const SignupPage = () => {
 		instance
 			.post("/auth/signup", newUser)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				toast.success(response.data.message);
 				navigate("/login");
 			})

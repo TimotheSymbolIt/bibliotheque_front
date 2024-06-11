@@ -12,13 +12,11 @@ const Login = () => {
 
 	const navigate = useNavigate()
 
-	console.log(user);
-
 	function login() {
 		instance
 			.post("/auth/login", user)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				toast.success(response.data.message);
 				navigate("/")
 			})
