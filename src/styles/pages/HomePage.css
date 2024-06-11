@@ -1,0 +1,9 @@
+.homepage_body {
+	padding: 10px;
+}
+
+.books {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
